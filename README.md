@@ -96,7 +96,7 @@ npm install
 
 ### Step 3: Setup Claude Desktop configuration
 
-Here is an example of how to configure the MCP server in the [Claude Desktop](https://claude.ai/download) configuration file (`claude_desktop_config.json`) where you can provide your Sinch Engage credentials and region:
+Here is an example of how to configure the MCP server in the [Claude Desktop](https://claude.ai/download) configuration file (`claude_desktop_config.json`) where you can provide your Sinch Engage credentials and region (`EU` or `AU`):
 
 ```json
 {
