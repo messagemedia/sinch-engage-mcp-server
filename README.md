@@ -1,5 +1,7 @@
 # Sinch Engage MCP Server
 
+[![Latest Release](https://img.shields.io/npm/v/@sinch-engage/mcp-server?label=%40sinch-engage%2Fmcp-server&labelColor=FFC658)](https://www.npmjs.com/package/@sinch-engage/mcp-server)
+
 This repository contains the source code for the Sinch Engage (Sinch MessageMedia in AU) MCP server, which provides Sinch Engage APIs as MCP tools.
 
 ## Tools Overview
