@@ -27,10 +27,11 @@ describe('Schema Converter', () => {
             expect(result.name).toBeDefined();
             expect(result.email).toBeDefined();
 
-            // Test that required field is not optional
-            expect(result.name._def.typeName).toBe('ZodString');
-            // Test that optional field is optional
-            expect(result.email._def.typeName).toBe('ZodOptional');
+            // Zod 4: use public type / isOptional (not internal _def.typeName)
+            expect(result.name.isOptional()).toBe(false);
+            expect(result.name.type).toBe('string');
+            expect(result.email.isOptional()).toBe(true);
+            expect(result.email.def.innerType.type).toBe('string');
         });
 
         test('should convert enum properties', () => {
@@ -42,8 +43,8 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.status._def.typeName).toBe('ZodOptional');
-            expect(result.status._def.innerType._def.typeName).toBe('ZodEnum');
+            expect(result.status.isOptional()).toBe(true);
+            expect(result.status.def.innerType.type).toBe('enum');
         });
 
         test('should convert number properties', () => {
@@ -56,8 +57,8 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.age._def.innerType._def.typeName).toBe('ZodNumber');
-            expect(result.count._def.innerType._def.typeName).toBe('ZodNumber');
+            expect(result.age.def.innerType.type).toBe('number');
+            expect(result.count.def.innerType.type).toBe('number');
         });
 
         test('should convert boolean properties', () => {
@@ -69,7 +70,7 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.active._def.innerType._def.typeName).toBe('ZodBoolean');
+            expect(result.active.def.innerType.type).toBe('boolean');
         });
 
         test('should convert array properties', () => {
@@ -84,7 +85,7 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.tags._def.innerType._def.typeName).toBe('ZodArray');
+            expect(result.tags.def.innerType.type).toBe('array');
         });
 
         test('should handle nested objects', () => {
@@ -103,7 +104,7 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.address._def.innerType._def.typeName).toBe('ZodObject');
+            expect(result.address.def.innerType.type).toBe('object');
         });
 
         test('should handle unknown types as any', () => {
@@ -115,7 +116,7 @@ describe('Schema Converter', () => {
             };
 
             const result = convertToZodSchema(schema);
-            expect(result.unknown._def.innerType._def.typeName).toBe('ZodAny');
+            expect(result.unknown.def.innerType.type).toBe('any');
         });
     });
 
