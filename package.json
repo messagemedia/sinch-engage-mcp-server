@@ -1,6 +1,6 @@
 {
     "name": "@sinch-engage/mcp-server",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Client-side MCP server for LLM clients",
     "type": "module",
     "main": "src/index.js",
