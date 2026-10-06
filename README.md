@@ -1,5 +1,7 @@
 # Sinch Engage MCP Server
 
+> **Deprecation notice.** This MCP server is deprecated and will reach end of life on 30 November 2026. Do not use it for new integrations. Follow [Connect to the Sinch Engage MCP (AU)](https://support.app.sinch.com/hc/en-us/articles/16560195995663-Connect-to-the-Sinch-Engage-MCP-AU) for the replacement server. This package and repository are retained for existing installations until that date, and no further feature work is planned.
+
 [![Latest Release](https://img.shields.io/npm/v/@sinch-engage/mcp-server?label=%40sinch-engage%2Fmcp-server&labelColor=FFC658)](https://www.npmjs.com/package/@sinch-engage/mcp-server)
 
 This repository contains the source code for the Sinch Engage (Sinch MessageMedia in AU) MCP server, which provides Sinch Engage APIs as MCP tools.
